@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑动爱心</title>
+    <link rel="stylesheet" href="./新建文件夹/2.css">
+</head>
+<body onmousedown="cc()">
+  <div class="box"><img src="./新建文件夹/t.png" alt=""></div>
+  <div class="a"><img src="./新建文件夹/1716225166374.png" alt=""></div>
+  <div class="h"><button id="bu">点我换颜色</button></div>
+    <div id="heartContainer"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+
+      const heartContainer = document.getElementById('heartContainer');
+      heartContainer.appendChild(heart);
+
+      heart.addEventListener('animationend', () => {
+        heart.remove();
+      });
+      heart.style.animation = 'heartAnimation 3s linear';
+    });
+    // 换颜色
+    function cc(){
+            var color=prompt("请输入颜色：");
+            if(color){
+                document.body.style.backgroundColor=color;
+            }
+        }
+    </script>
+</body>
+</html>
